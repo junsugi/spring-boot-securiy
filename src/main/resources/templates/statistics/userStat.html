@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+    <header style="display: flex; flex-direction: row; justify-content: center">
+        <h2 th:text="${title}"></h2>
+    </header>
+    <section>
+        <article>
+            <form action="#" id="statForm" style="display: flex; flex-direction: row; justify-content: center">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><label>Start Date</label></td>
+                            <td><input id="startDate" type="date" /></td>
+                        </tr>
+                        <tr>
+                            <td><label>End Date</label></td>
+                            <td>
+                                <input id="endDate" type="date" />
+                                <button type="button" id="searchBtn">검색</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </article>
+        <article>
+            <div style="display: flex; flex-direction: row; justify-content: center; margin-top: 20px">
+                <table style="border: 1px solid #000000; border-collapse: collapse">
+                    <caption id="user-stat-summary"></caption>
+                    <thead>
+                        <tr>
+                            <th width="200px">#</th>
+                            <th width="200px">이메일</th>
+                            <th width="200px">이름</th>
+                            <th width="200px">가입일</th>
+                            <th width="200px">전화번호</th>
+                        </tr>
+                    </thead>
+                    <tbody id="user-table-list">
+                    </tbody>
+                </table>
+            </div>
+        </article>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/js/stat.js"></script>
+</body>
+</html>

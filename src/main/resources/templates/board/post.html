@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+    <header style="display: flex; flex-direction: row; justify-content: center">
+        <h2>글쓰기</h2>
+    </header>
+    <section>
+        <article>
+            <form action="/post" method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column; align-items: center">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><label>제목</label></td>
+                            <td><input type="text" name="summary" style="width: 300px"/></td>
+                        </tr>
+                        <tr>
+                            <td><label>내용</label></td>
+                            <td><textarea name="content" style="width: 300px; height: 200px"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><label>업로드</label></td>
+                            <td><input type="file" name="videoFile" /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="text-align: right">
+                                <button type="submit">글 생성하기</button>
+                                <button type="button" onclick="javascript:location.href='/board'">취소</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </article>
+    </section>
+</body>
+</html>

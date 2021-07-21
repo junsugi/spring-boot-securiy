@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+    <header style="display: flex; flex-direction: row; justify-content: center">
+        <h2>회원가입</h2>
+    </header>
+    <section>
+        <article>
+            <form action="/signUp" method="post" style="display: flex; flex-direction: column; align-items: center">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: right"><label>이름 : </label></td>
+                            <td><input type="text" name="userName" required /></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right"><label>비밀번호 : </label></td>
+                            <td><input type="password" name="userPw" required /></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right"><label>이메일 : </label></td>
+                            <td><input type="email" name="email" required /></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right"><label>핸드폰번호 : </label></td>
+                            <td><input type="text" name="phoneNum" pattern="[0-9]+" placeholder="01000000000" required /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td style="float: right;">
+                                <button type="submit">회원가입 하기</button>
+                                <button onclick="javascript:history.back();">취소</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </article>
+    </section>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <header>
+        <h2>글 보기</h2>
+    </header>
+    <section>
+        <article>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>제목</td>
+                        <td th:text="${board.summary}"></td>
+                    </tr>
+                    <tr>
+                        <td>내용</td>
+                        <td th:text="${board.content}"></td>
+                    </tr>
+                    <tr>
+                        <td>작성자</td>
+                        <td th:text="${board.author}"></td>
+                    </tr>
+                    <tr>
+                        <td>생성일</td>
+                        <td th:text="${board.created}"></td>
+                    </tr>
+                    <tr>
+                        <td>비디오 이름</td>
+                        <td th:text="${video.fileName}"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <video th:src=@{'/playVideo?path='+${video.filePath}} width="800px" height="600px" controls autoplay></video>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+</body>
+</html>

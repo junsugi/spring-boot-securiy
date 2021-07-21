@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+    <header style="display: flex; flex-direction: row; justify-content: center">
+        <h2 th:text="${title}"></h2>
+    </header>
+    <section>
+        <article>
+            <form style="display: flex; flex-direction: column; align-items: center" method="post" action="/login/auth">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><label>이메일</label></td>
+                            <td><input id="email" type="email" name="email" required /></td>
+                        </tr>
+                        <tr>
+                            <td><label>비밀번호</label></td>
+                            <td><input id="userPw" type="password" name="userPw" required /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button type="submit" style="width: 100%">로그인</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center">
+                                <a href="/signUp">회원가입</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </article>
+    </section>
+</body>
+</html>

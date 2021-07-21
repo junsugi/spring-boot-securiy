@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+    <style>
+        th, td {
+            border: 1px solid #000000;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header style="display: flex; flex-direction: row; justify-content: center">
+        <h2>게시판</h2>
+    </header>
+    <section>
+        <article style="display: flex; flex-direction: row; justify-content: center">
+            <table style="width: 80%; border: 1px solid #000000;border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>생성일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="board, num: ${board}">
+                        <td th:text="${(num.size - num.count) + 1}" style="text-align: center;"></td>
+                        <td style="text-align: center;">
+                            <a th:href="@{'/board?id='+${board.id}}" th:text="${board.summary}"></a>
+                        </td>
+                        <td th:text="${board.author}" style="text-align: center;"></td>
+                        <td th:text="${board.created}" style="text-align: center;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: right">
+                            <a href="/post">글쓰기</a>
+                            <a href="/user/stat" th:if="${isAdmin} == true">통계</a>
+                            <a href="/profile">회원정보수정</a>
+                            <a id="logout" href="#">로그아웃</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/js/board.js"></script>
+</body>
+</html>
