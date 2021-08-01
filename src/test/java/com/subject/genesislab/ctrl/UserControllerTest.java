@@ -14,6 +14,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -59,6 +60,8 @@ public class UserControllerTest {
     private AuthenticationManagerBuilder authenticationManagerBuilder;
     @InjectMocks
     private UserController userController;
+    @Mock
+    private MockHttpServletRequest request;
 
     @Before
     public void before(){

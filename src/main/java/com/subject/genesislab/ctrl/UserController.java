@@ -148,12 +148,18 @@ public class UserController {
     public Object loginAuth(ModelAndView mv, HttpServletResponse response, UserDto userDto){
         logger.debug(" ==> Call loginAuth method !, params : {}", userDto.toString());
         try{
+            // 유저 아이디와 비밀번호를 가지고 토큰을 만든다.
+            // 생성된 토큰을 Authentication Manager에 넘겨서 검증한다.
+            // 인증에 성공하면 Authentication을 리턴한다.
             UsernamePasswordAuthenticationToken authenticationToken =
                     new UsernamePasswordAuthenticationToken(userDto.getEmail(), userDto.getUserPw());
 
+            // 주체의 권한과 인증을 담은 인터페이스 (UserDetailService로 이동해서 검증하는거 같음)
             Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
+            // 스프링 시큐리티 세션 메모리에 인증정보 저장, SecurityContext를 통해 Authentication 접근할 수 있음
             SecurityContextHolder.getContext().setAuthentication(authentication);
 
+            // 엑세스토큰 및 리프레시 토큰 생성
             String accessToken = tokenProvider.createToken(authentication, TokenProvider.ACCESS_TOKEN_EXP_TIME);
             String refreshToken = tokenProvider.createToken(authentication, TokenProvider.REFRESH_TOKEN_EXP_TIME);
 
